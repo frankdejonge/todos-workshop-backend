@@ -78,7 +78,7 @@ class HomeController extends Controller
             return JsonResponse::create(\compact('id'), 404);
         }
 
-        $todo->update($payload['task'], $payload['completed']);
+        $todo->update($payload['task'] ?? $todo->task(), $payload['completed'] ?? $todo->completed());
         $this->todos()->persist($todo);
 
         return JsonResponse::create($todo);

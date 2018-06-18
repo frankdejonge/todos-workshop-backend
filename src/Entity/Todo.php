@@ -63,4 +63,14 @@ class Todo implements JsonSerializable
     {
         return ['id' => $this->id->toString(), 'task' => $this->task, 'completed' => $this->completed];
     }
+
+    public function task(): string
+    {
+        return $this->task;
+    }
+
+    public function completed(): bool
+    {
+        return $this->completed;
+    }
 }
